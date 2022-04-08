@@ -36,7 +36,6 @@ class SimpleQuiz2 {
                    알맞은 코드를 넣으세요.
 
               */
-
             System.out.print("[답]");
             String input = s.next();
             if(input.equals(answer)) {
