@@ -117,13 +117,29 @@ class Console5 {
 //               1. 입력된 패턴(pattern)을 정규식 표현(Regular Expression)에 알맞게 치환한다.
 //                   String클래스의 String replace(CharSequence target, CharSequence replacement)를 사용하자.
 //                   예를 들면, pattern = pattern.replace("A","AA")는 pattern의 "A"를 "AA"로 치환한다.
+                pattern = pattern.replace(".", "\\.");
+                pattern = pattern.replace("*", ".*");
+                pattern = pattern.replace("?", ".{1}");
+
+                Pattern p = Pattern.compile(pattern);
 
 //               2. 반복문을 이용해서 현재 디렉토리 중, 입력된 패턴과 일치하는 것들만 출력한다.
 //                  이때, 조건문을 같이 사용해서 디렉토리(폴더)인 경우, 이름의 앞뒤에 '[' 와 ']'를 붙여서 출력한다.
 //                  (File클래스의 isDirectory()를 사용해서 체크)
-
 //                  대소문자구별을 하지 않기 위해서, 패턴과 마찬가지로 파일이나 디렉토리명을 대문자로 변경해야한다.
 //                  String tmp = f.getName().toUpperCase();
+                for (File f : curDir.listFiles()) {
+                    String tmp = f.getName().toUpperCase();
+                    Matcher m = p.matcher(tmp);
+
+                    if (m.matches()) {
+                        if (f.isDirectory()) {
+                            System.out.println("[" + f.getName() + "]");
+                        } else {
+                            System.out.println(f.getName());
+                        }
+                    }
+                }
 
                 break;
             default :
