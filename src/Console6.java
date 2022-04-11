@@ -19,7 +19,7 @@ class Console6 {
 
     static {
         try {
-            curDir = new File(System.getProperty("user.dir"));
+            curDir = new File(System.getProperty("user.dir") + "/src");
         } catch(Exception e) {}
     }
 
@@ -67,12 +67,15 @@ class Console6 {
     } // main
 
     public static void save(String input) {
-        /* 내용 생략 */
+        if (input == null || "".equals(input)) return;
+        q.offer(input);
+        if (q.size() >= MAX_SIZE) q.remove();
     }
 
     public static void history() {
-        /* 내용 생략 */
-
+        for (int i=0; i<q.size(); i++) {
+            System.out.println(q.get(i));
+        }
     }
 
     public static void dir() {
@@ -117,14 +120,14 @@ class Console6 {
     } // dir()
 
     public static void type() throws IOException {
-        if(argArr.length !=2) {
+        if(argArr.length != 2) {
             System.out.println("Usage : type FILE_NAME");
             return;
         }
 
         String fileName = argArr[1];
 
-        File tmp = new File(fileName);
+        File tmp = new File(curDir + "/" + fileName);
 
 
 //        다음의 코드를 완성하세요.
@@ -136,15 +139,16 @@ class Console6 {
             String line = "";
 //              1.1 존재하면, 파일의 내용을 화면에 출력한다.
 //                   (FileReader와 BufferedReader를 사용)
-            while (br.readLine() != null) {
+//            for (int i=1; (line=br.readLine())!=null; i++) {
+//                System.out.println(line);
+//            }
+            while ((line = br.readLine()) != null) {
                 System.out.println(line);
             }
 //              1.2 존재하지 않으면, 존재하지 않는 파일이라고 출력한다.
         } else {
-            System.out.println(fileName + "존재하지 않는 파일입니다.");
+            System.out.println(fileName + " 존재하지 않는 파일입니다.");
         }
-
-
 
         return;
     }
