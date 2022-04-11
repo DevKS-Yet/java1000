@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.*;
 import java.util.regex.*;
 
-class ConsoleEx8 {
+class Console8 {
     static String[] argArr;                         // 입력한 매개변수를 담기위한 문자열배열
     static LinkedList q = new LinkedList(); // 사용자가 입력한 내용을 저장할 큐(Queue)
     static final int MAX_SIZE = 5;              // Queue에 최대 5개까지만 저장되도록 한다.
