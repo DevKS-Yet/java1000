@@ -69,7 +69,7 @@ class Console6 {
     public static void save(String input) {
         if (input == null || "".equals(input)) return;
         q.offer(input);
-        if (q.size() >= MAX_SIZE) q.remove();
+        if (q.size() > MAX_SIZE) q.remove();
     }
 
     public static void history() {
