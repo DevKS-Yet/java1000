@@ -132,7 +132,7 @@ class Console9 {
         String keyword = argArr[1];
         String fileName = argArr[2];
 
-        File tmp = new File(fileName);
+        File tmp = new File(curDir, fileName);
 
         if(tmp.exists()) {
             FileReader fr = new FileReader(fileName);
@@ -202,7 +202,6 @@ class Console9 {
         }
 
         String subDir = argArr[1];
-          
 
 //         다음의 코드를 완성하세요.
 //         1. 입력된 디렉토리(subDir)가 ".."이면,
