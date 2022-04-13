@@ -38,8 +38,6 @@ class Score1 {
 }
 
 class Student {
-
-
 //    코드를 완성하세요.
 //    1.  이름(name), 반(classNo), 번호(studentNo),
 //        국어(Korean), 수학(Math), 영어(English), 총점(Total)을
@@ -61,8 +59,6 @@ class Student {
 
 //    3. Object클래스의 toString()을 오버라이딩해서 실행결과와 같이,
 //        이름, 반, 번호, 국어, 수학, 영어, 총점이 화면에 출력되도록 한다.
-
-
     @Override
     public String toString() {
         return name + "\t" + classNo + "\t" + studentNo + "\t" + korean + "\t" + math + "\t" + english + "\t" + total;
