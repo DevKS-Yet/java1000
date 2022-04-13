@@ -145,7 +145,6 @@ class Console8 {
         } else {
             System.out.println(fileName + " 존재하지 않는 파일입니다.");
         }
-
         return;
     }
 
