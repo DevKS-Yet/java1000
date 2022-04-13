@@ -105,14 +105,50 @@ class Console9 {
     } // dir()
 
     public static void type() throws IOException {
-        /* 내용 생략 */
-
+        if (argArr.length != 2) {
+            System.out.println("Usage : type FILE_NAME");
+            return;
+        }
+        String fileName = argArr[1];
+        File tmp = new File(curDir, fileName);
+        if (tmp.exists()) {
+            FileReader fr = new FileReader(tmp);
+            BufferedReader br = new BufferedReader(fr);
+            String line = "";
+            for (int i=1; (line=br.readLine())!=null; i++) {
+                System.out.println(line);
+            }
+        } else System.out.println(fileName + " 존재하지 않는 파일입니다.");
+        return;
     }
 
 
     public static void find() throws IOException {
-        /* 내용 생략 */
+        if(argArr.length!=3) {
+            System.out.println("USAGE : find KEYWORD FILE_NAME");
+            return;
+        }
 
+        String keyword = argArr[1];
+        String fileName = argArr[2];
+
+        File tmp = new File(fileName);
+
+        if(tmp.exists()) {
+            FileReader fr = new FileReader(fileName);
+            BufferedReader br = new BufferedReader(fr);
+
+            String line = "";
+
+            for(int i=1;(line = br.readLine())!=null;i++) {
+                // keyword를 포함한 라인을 출력한다.
+                if(line.indexOf(keyword)!=-1)
+                    System.out.println(i+":"+line);
+            }
+        } else {
+            System.out.println(fileName + " 존재하지 않는 파일입니다.");
+        }
+        return;
     }
 
     public static void find2() throws IOException {
