@@ -5,7 +5,7 @@
 
 import java.util.*;
 
-class SungJukEx2 {
+class Score2 {
     public static void main(String[] args) {
         ArrayList<Student2> list = new ArrayList<Student2>();
 
