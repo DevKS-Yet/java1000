@@ -68,11 +68,15 @@ class Student2 implements Comparable<Student2> {
     }
 
     public int compareTo(Student2 obj) {
-            /*
-                 코드를 완성하세요.
-
-           */
-        return -1;
+//        코드를 완성하세요.
+//        return obj.total - this.total;
+        if (this.total < obj.total) {
+            return 1;
+        } else if (this.total == obj.total) {
+            return 0;
+        } else {
+            return -1;
+        }
     }
 } // end of class Student
 
