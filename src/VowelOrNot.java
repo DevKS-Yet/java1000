@@ -32,7 +32,7 @@ public class VowelOrNot {
         {
             char c = sc.next().charAt(0);
 
-            Solution ob = new Solution();
+            VowelOrNotSolution ob = new VowelOrNotSolution();
             System.out.println(ob.isVowel(c));
         }
     }
@@ -48,7 +48,7 @@ which takes a character c and returns 'YES' or 'NO'.
  */
 
 //User function Template for Java
-class Solution{
+class VowelOrNotSolution{
     String isVowel(char c){
         // code here
         if (c < 97) {
